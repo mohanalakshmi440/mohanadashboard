@@ -62,7 +62,7 @@ const MainLayout: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#FAFAF9] dark:bg-[#141618] text-gray-800 dark:text-gray-200 font-sans">
+    <div className="flex h-screen overflow-hidden bg-[#FAFAF9] dark:bg-[#060B18] text-gray-800 dark:text-gray-200 font-sans">
       
       {/* 1. DESKTOP VIEW SIDEBAR (hidden on mobile) */}
       <div className="hidden lg:block shrink-0">
@@ -87,12 +87,12 @@ const MainLayout: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="relative w-64 max-w-xs h-full bg-[#1A1D20] shadow-xl flex flex-col pt-4"
+              className="relative w-64 max-w-xs h-full bg-[#0C1222] shadow-xl flex flex-col pt-4"
             >
               <div className="absolute top-4 right-4 z-50">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-1.5 rounded-lg bg-[#24282C] text-gray-400 hover:text-white"
+                  className="p-1.5 rounded-lg bg-[#16223B] text-gray-400 hover:text-white"
                 >
                   <X className="w-4 h-4 cursor-pointer" />
                 </button>
@@ -111,16 +111,16 @@ const MainLayout: React.FC = () => {
       <div className="flex-1 flex flex-col h-full overflow-hidden">
         
         {/* RESPONSIVE TOP NAV BAR FOR MOBILE & QUICK HEADER DETAILS */}
-        <header className="flex lg:hidden items-center justify-between px-5 py-4 bg-[#1A1D20] text-white border-b border-[#2D3135] shrink-0 leading-none">
+        <header className="flex lg:hidden items-center justify-between px-5 py-4 bg-[#0C1222] text-white border-b border-[#1C273E] shrink-0 leading-none">
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 -ml-2 rounded-xl bg-transparent hover:bg-[#202428] transition-colors cursor-pointer"
+            className="p-2 -ml-2 rounded-xl bg-transparent hover:bg-[#131D33] transition-colors cursor-pointer"
           >
             <Menu className="w-5 h-5 text-gray-300" />
           </button>
           
           <div className="flex items-center gap-2">
-            <span className="font-display font-black text-amber-500 tracking-tight text-base">CF</span>
+            <span className="font-display font-black text-blue-400 tracking-tight text-base">CF</span>
             <span className="text-[10px] tracking-widest text-gray-400 font-mono scale-95 uppercase font-bold">Fudge SaaS</span>
           </div>
 
@@ -128,7 +128,7 @@ const MainLayout: React.FC = () => {
             {/* Search link trigger */}
             <button 
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-xl hover:bg-[#202428] text-gray-400 cursor-pointer"
+              className="p-2 rounded-xl hover:bg-[#131D33] text-gray-400 cursor-pointer"
               title="Search dessert database"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 block animate-pulse"></span>
@@ -137,7 +137,7 @@ const MainLayout: React.FC = () => {
             {/* Notifications link trigger */}
             <button
               onClick={() => setCurrentView('notifications')}
-              className="p-2 rounded-xl hover:bg-[#202428] text-gray-400 relative cursor-pointer"
+              className="p-2 rounded-xl hover:bg-[#131D33] text-gray-400 relative cursor-pointer"
               title="Alert logs"
             >
               <Bell className="w-4 h-4" />

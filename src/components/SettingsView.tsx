@@ -59,7 +59,7 @@ export const SettingsView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Overview */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
         <div>
           <h2 className="text-xl font-display font-bold text-gray-950 dark:text-white">HQ Settings Panel</h2>
           <p className="text-xs text-gray-400 mt-1">Configure global pricing variables, system details and persistent themes.</p>
@@ -70,9 +70,9 @@ export const SettingsView: React.FC = () => {
       <form onSubmit={handleFormSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         
         {/* LEFT COLUMN: GENERAL SETTINGS */}
-        <div className="lg:col-span-2 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium space-y-6">
+        <div className="lg:col-span-2 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium space-y-6">
           <h3 className="text-sm font-display font-bold text-gray-950 dark:text-white flex items-center gap-2">
-            <Building className="w-4 h-4 text-amber-500" />
+            <Building className="w-4 h-4 text-blue-400" />
             General Dessert Shop Information
           </h3>
 
@@ -85,7 +85,7 @@ export const SettingsView: React.FC = () => {
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
                 placeholder="E.g. Cream Fudge HQ..."
-                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-100 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-100 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
@@ -96,7 +96,7 @@ export const SettingsView: React.FC = () => {
                 value={businessPhone}
                 onChange={(e) => setBusinessPhone(e.target.value)}
                 placeholder="HQ Hotline..."
-                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-100 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-100 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
@@ -107,7 +107,7 @@ export const SettingsView: React.FC = () => {
                 value={businessEmail}
                 onChange={(e) => setBusinessEmail(e.target.value)}
                 placeholder="mail@fudge.com..."
-                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-100 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-100 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
@@ -118,13 +118,13 @@ export const SettingsView: React.FC = () => {
                 value={businessAddress}
                 onChange={(e) => setBusinessAddress(e.target.value)}
                 placeholder="Corporate HQ address..."
-                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-100 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-100 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
               />
             </div>
           </div>
 
-          <h3 className="text-sm font-display font-bold text-gray-950 dark:text-white flex items-center gap-2 pt-4 border-t border-gray-100 dark:border-[#23272A]">
-            <Percent className="w-4 h-4 text-amber-500" />
+          <h3 className="text-sm font-display font-bold text-gray-950 dark:text-white flex items-center gap-2 pt-4 border-t border-gray-100 dark:border-[#151F33]">
+            <Percent className="w-4 h-4 text-blue-400" />
             Pricing Variables & Operational Triggers
           </h3>
 
@@ -134,7 +134,7 @@ export const SettingsView: React.FC = () => {
               <select
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
-                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-100 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-100 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
               >
                 <option value="$">USD ($)</option>
                 <option value="€">EUR (€)</option>
@@ -153,7 +153,7 @@ export const SettingsView: React.FC = () => {
                 value={taxRate}
                 onChange={(e) => setTaxRate(e.target.value)}
                 placeholder="8.5%..."
-                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-100 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-100 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
               />
             </div>
 
@@ -165,15 +165,15 @@ export const SettingsView: React.FC = () => {
                 value={lowStockThreshold}
                 onChange={(e) => setLowStockThreshold(e.target.value)}
                 placeholder="10 units..."
-                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-100 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-100 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="flex justify-start pt-4 border-t border-gray-100 dark:border-[#23272A]">
+          <div className="flex justify-start pt-4 border-t border-gray-100 dark:border-[#151F33]">
             <button
               type="submit"
-              className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-6 py-3 rounded-xl transition-all shadow-lg shadow-amber-600/10 cursor-pointer"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-6 py-3 rounded-xl transition-all shadow-lg shadow-blue-500/10 cursor-pointer"
             >
               Save Configuration Settings
             </button>
@@ -183,7 +183,7 @@ export const SettingsView: React.FC = () => {
         {/* RIGHT COLUMN: PREFERENCES & RESET OPERATIONS */}
         <div className="space-y-6">
           {/* Quick theme toggler widget */}
-          <div className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium space-y-4">
+          <div className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium space-y-4">
             <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider font-mono">UI Preference</h3>
             
             <div className="flex items-center justify-between text-xs font-semibold">
@@ -191,19 +191,19 @@ export const SettingsView: React.FC = () => {
               <button
                 type="button"
                 onClick={toggleTheme}
-                className={`w-12 h-6 rounded-full p-1 transition-all ${theme === 'dark' ? 'bg-amber-600' : 'bg-gray-200'}`}
+                className={`w-12 h-6 rounded-full p-1 transition-all ${theme === 'dark' ? 'bg-blue-600' : 'bg-gray-200'}`}
               >
                 <div className={`w-4 h-4 rounded-full bg-white transition-all ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}></div>
               </button>
             </div>
 
             {/* Sound alert simulation */}
-            <div className="flex items-center justify-between text-xs font-semibold border-t border-gray-100 dark:border-[#23272A] pt-3">
+            <div className="flex items-center justify-between text-xs font-semibold border-t border-gray-100 dark:border-[#151F33] pt-3">
               <span className="text-gray-600 dark:text-gray-300">Enable Sound alerts</span>
               <button
                 type="button"
                 onClick={() => setEnableSoundAlerts(!enableSoundAlerts)}
-                className={`w-12 h-6 rounded-full p-1 transition-all ${enableSoundAlerts ? 'bg-amber-600' : 'bg-gray-200'}`}
+                className={`w-12 h-6 rounded-full p-1 transition-all ${enableSoundAlerts ? 'bg-blue-600' : 'bg-gray-200'}`}
               >
                 <div className={`w-4 h-4 rounded-full bg-white transition-all ${enableSoundAlerts ? 'translate-x-6' : 'translate-x-0'}`}></div>
               </button>
@@ -211,7 +211,7 @@ export const SettingsView: React.FC = () => {
           </div>
 
           {/* Database Actions */}
-          <div className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium space-y-4">
+          <div className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium space-y-4">
             <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider font-mono text-red-500 flex items-center gap-1.5">
               <Database className="w-3.5 h-3.5" />
               Destructive Operations

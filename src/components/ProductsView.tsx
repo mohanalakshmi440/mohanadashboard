@@ -136,7 +136,7 @@ export const ProductsView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header Panel */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
         <div>
           <h2 className="text-xl font-display font-bold text-gray-950 dark:text-white">Candy & Dessert Inventory</h2>
           <p className="text-xs text-gray-400 mt-1">Manage physical dessert stock, change pricing variables, and add custom fast-foods items.</p>
@@ -144,7 +144,7 @@ export const ProductsView: React.FC = () => {
 
         <button
           onClick={openAddModal}
-          className="flex items-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-amber-600/10 cursor-pointer"
+          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-500/10 cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           Add Gourmet Product
@@ -152,7 +152,7 @@ export const ProductsView: React.FC = () => {
       </div>
 
       {/* FILTER CONTROLS GRID */}
-      <div className="bg-white dark:bg-[#1A1D20] p-4 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium space-y-3.5">
+      <div className="bg-white dark:bg-[#0C1222] p-4 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium space-y-3.5">
         <div className="flex flex-col md:flex-row items-center gap-3 justify-between">
           <div className="relative w-full md:max-w-md">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -161,18 +161,18 @@ export const ProductsView: React.FC = () => {
               placeholder="Search by product name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full text-xs pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2C3034] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500 font-sans"
+              className="w-full text-xs pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1E2B48] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500 font-sans"
             />
           </div>
 
-          <div className="flex bg-gray-50 dark:bg-[#202428] rounded-xl p-1 border border-gray-100 dark:border-[#2D3135] overflow-x-auto self-stretch md:self-auto shrink-0 max-w-full">
+          <div className="flex bg-gray-50 dark:bg-[#131D33] rounded-xl p-1 border border-gray-100 dark:border-[#1C273E] overflow-x-auto self-stretch md:self-auto shrink-0 max-w-full">
             {(['All', ...categories] as string[]).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setCategoryFilter(cat)}
                 className={`px-3 py-1.5 text-[11px] font-bold rounded-lg capitalize whitespace-nowrap transition-all cursor-pointer ${
                   categoryFilter === cat 
-                    ? 'bg-white dark:bg-[#1A1D20] text-amber-600 dark:text-white shadow-sm' 
+                    ? 'bg-white dark:bg-[#0C1222] text-blue-500 dark:text-white shadow-sm' 
                     : 'text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
@@ -183,7 +183,7 @@ export const ProductsView: React.FC = () => {
         </div>
 
         {/* Stock Alerts Quick Ribbons */}
-        <div className="flex items-center gap-1.5 pt-1.5 border-t border-gray-100 dark:border-[#23272A] overflow-x-auto">
+        <div className="flex items-center gap-1.5 pt-1.5 border-t border-gray-100 dark:border-[#151F33] overflow-x-auto">
           <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mr-2">Stock Level:</span>
           {(['All', 'In Stock', 'Low Stock', 'Out of Stock'] as const).map((lvl) => (
             <button
@@ -191,8 +191,8 @@ export const ProductsView: React.FC = () => {
               onClick={() => setStockFilter(lvl)}
               className={`px-2.5 py-1 text-[10px] font-semibold rounded-lg capitalize border cursor-pointer ${
                 stockFilter === lvl 
-                  ? 'bg-amber-500/10 text-amber-600 border-amber-500/30' 
-                  : 'bg-transparent text-gray-400 border-gray-100 dark:border-[#23272A] hover:bg-gray-50 dark:hover:bg-[#202428]'
+                  ? 'bg-blue-500/10 text-blue-500 border-amber-500/30' 
+                  : 'bg-transparent text-gray-400 border-gray-100 dark:border-[#151F33] hover:bg-gray-50 dark:hover:bg-[#131D33]'
               }`}
             >
               {lvl}
@@ -214,7 +214,7 @@ export const ProductsView: React.FC = () => {
               <motion.div
                 key={p.id}
                 layout
-                className="bg-white dark:bg-[#1A1D20] rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium overflow-hidden group flex flex-col justify-between"
+                className="bg-white dark:bg-[#0C1222] rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium overflow-hidden group flex flex-col justify-between"
               >
                 {/* Visual Header */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-gray-50 dark:bg-gray-900 leading-none">
@@ -242,7 +242,7 @@ export const ProductsView: React.FC = () => {
                   </span>
 
                   {/* Overlay Claims count */}
-                  <span className="absolute bottom-2.5 left-2.5 bg-[#FFF7ED]/90 dark:bg-[#1A1D20]/90 backdrop-blur-md text-amber-700 dark:text-amber-500 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-500/10">
+                  <span className="absolute bottom-2.5 left-2.5 bg-[#FFF7ED]/90 dark:bg-[#0C1222]/90 backdrop-blur-md text-amber-700 dark:text-blue-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-500/10">
                     {p.salesCount.toLocaleString()} serves claimed
                   </span>
                 </div>
@@ -286,20 +286,20 @@ export const ProductsView: React.FC = () => {
                   </div>
 
                   {/* RESTOCK / DISPATCH ACTIONS BAR */}
-                  <div className="border-t border-gray-100 dark:border-[#23272A] pt-3 flex items-center justify-between gap-1">
+                  <div className="border-t border-gray-100 dark:border-[#151F33] pt-3 flex items-center justify-between gap-1">
                     {/* Add Stock buttons */}
                     <div className="flex gap-1 items-center">
                       <button
                         onClick={() => handleQuickRestock(p, 5)}
                         disabled={p.stock >= p.maxStock}
-                        className="text-[9px] font-bold px-2 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-600 border border-amber-500/10 rounded disabled:opacity-40 transition-all cursor-pointer"
+                        className="text-[9px] font-bold px-2 py-1 bg-blue-500/5 hover:bg-blue-500/10 text-blue-500 border border-amber-500/10 rounded disabled:opacity-40 transition-all cursor-pointer"
                       >
                         +5 Stock
                       </button>
                       <button
                         onClick={() => handleQuickRestock(p, 20)}
                         disabled={p.stock >= p.maxStock}
-                        className="text-[9px] font-bold px-2 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-600 border border-amber-500/10 rounded disabled:opacity-40 transition-all cursor-pointer"
+                        className="text-[9px] font-bold px-2 py-1 bg-blue-500/5 hover:bg-blue-500/10 text-blue-500 border border-amber-500/10 rounded disabled:opacity-40 transition-all cursor-pointer"
                       >
                         +20
                       </button>
@@ -309,7 +309,7 @@ export const ProductsView: React.FC = () => {
                     <div className="flex items-center gap-1 shrink-0">
                       <button
                         onClick={() => openEditModal(p)}
-                        className="p-1 border border-gray-100 dark:border-[#23272A] hover:bg-gray-50 dark:hover:bg-[#202428] rounded-xl text-gray-400 hover:text-amber-500 transition-colors cursor-pointer"
+                        className="p-1 border border-gray-100 dark:border-[#151F33] hover:bg-gray-50 dark:hover:bg-[#131D33] rounded-xl text-gray-400 hover:text-blue-400 transition-colors cursor-pointer"
                         title="Edit Item"
                       >
                         <Edit className="w-3.5 h-3.5" />
@@ -320,7 +320,7 @@ export const ProductsView: React.FC = () => {
                             deleteProduct(p.id);
                           }
                         }}
-                        className="p-1 border border-gray-100 dark:border-[#23272A] hover:bg-gray-50 dark:hover:bg-[#202428] rounded-xl text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                        className="p-1 border border-gray-100 dark:border-[#151F33] hover:bg-gray-50 dark:hover:bg-[#131D33] rounded-xl text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
                         title="Delete Item"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -332,7 +332,7 @@ export const ProductsView: React.FC = () => {
             );
           })
         ) : (
-          <div className="col-span-full text-center py-16 text-gray-400 bg-white dark:bg-[#1A1D20] rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+          <div className="col-span-full text-center py-16 text-gray-400 bg-white dark:bg-[#0C1222] rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
             <Dessert className="w-10 h-10 text-gray-300 mx-auto mb-2.5" />
             No dessert products in this category query.
           </div>
@@ -347,10 +347,10 @@ export const ProductsView: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white dark:bg-[#1A1D20] border border-gray-100 dark:border-[#2D3135] w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative"
+              className="bg-white dark:bg-[#0C1222] border border-gray-100 dark:border-[#1C273E] w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative"
             >
               {/* Header */}
-              <div className="p-5 border-b border-gray-100 dark:border-[#2D3135] flex items-center justify-between">
+              <div className="p-5 border-b border-gray-100 dark:border-[#1C273E] flex items-center justify-between">
                 <h3 className="font-display font-bold text-gray-900 dark:text-white text-base">
                   {editingProduct ? 'Modify Gourmet Dessert' : 'Create Dessert Product'}
                 </h3>
@@ -372,7 +372,7 @@ export const ProductsView: React.FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="E.g., Mint Fudge Crunch Melt..."
-                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
                   />
                 </div>
 
@@ -382,7 +382,7 @@ export const ProductsView: React.FC = () => {
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
-                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
                     >
                       {categories.map(cat => (
                         <option key={cat} value={cat}>{cat}</option>
@@ -399,7 +399,7 @@ export const ProductsView: React.FC = () => {
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                       placeholder="Price..."
-                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
                     />
                   </div>
                 </div>
@@ -414,7 +414,7 @@ export const ProductsView: React.FC = () => {
                       value={costPrice}
                       onChange={(e) => setCostPrice(e.target.value)}
                       placeholder="Cost..."
-                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
                     />
                   </div>
 
@@ -426,7 +426,7 @@ export const ProductsView: React.FC = () => {
                       value={stock}
                       onChange={(e) => setStock(e.target.value)}
                       placeholder="Stock..."
-                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
                     />
                   </div>
 
@@ -438,7 +438,7 @@ export const ProductsView: React.FC = () => {
                       value={maxStock}
                       onChange={(e) => setMaxStock(e.target.value)}
                       placeholder="Max..."
-                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
                     />
                   </div>
                 </div>
@@ -450,27 +450,27 @@ export const ProductsView: React.FC = () => {
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                     placeholder="Pasted image URL, or leave blank to auto-select beautiful CDN placeholder"
-                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none"
                   />
                   {!imageUrl && (
-                    <span className="text-[10px] text-amber-500 font-semibold block mt-1">
+                    <span className="text-[10px] text-blue-400 font-semibold block mt-1">
                       ✨ Leave empty to auto-assign a delicious {category} HD image!
                     </span>
                   )}
                 </div>
 
                 {/* Submit Panel */}
-                <div className="flex gap-2 border-t border-gray-100 dark:border-[#2D3135] pt-4 mt-6">
+                <div className="flex gap-2 border-t border-gray-100 dark:border-[#1C273E] pt-4 mt-6">
                   <button
                     type="button"
                     onClick={() => { setIsAddModalOpen(false); setEditingProduct(null); }}
-                    className="flex-1 text-xs py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-[#202428] border border-gray-200 dark:border-[#2D3135] text-gray-500 dark:text-gray-300 transition-colors cursor-pointer"
+                    className="flex-1 text-xs py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] text-gray-500 dark:text-gray-300 transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 text-xs py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold transition-all shadow-lg shadow-amber-600/10 cursor-pointer"
+                    className="flex-1 text-xs py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-lg shadow-blue-500/10 cursor-pointer"
                   >
                     Save Dessert
                   </button>

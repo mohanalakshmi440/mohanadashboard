@@ -150,7 +150,7 @@ export const CustomersView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* View Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
         <div>
           <h2 className="text-xl font-display font-bold text-gray-950 dark:text-white">Customer Database</h2>
           <p className="text-xs text-gray-400 mt-1">Audit customer loyalty records, transaction histories, and manage subscriber details.</p>
@@ -159,7 +159,7 @@ export const CustomersView: React.FC = () => {
         <div className="flex gap-2 shrink-0">
           <button
             onClick={exportToCSV}
-            className="flex items-center gap-1.5 bg-gray-50 dark:bg-[#24282C] hover:bg-gray-100 dark:hover:bg-[#2D3135] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#2D3135] text-xs font-bold px-4 py-2.5 rounded-xl transition-all cursor-pointer"
+            className="flex items-center gap-1.5 bg-gray-50 dark:bg-[#16223B] hover:bg-gray-100 dark:hover:bg-[#1C273E] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#1C273E] text-xs font-bold px-4 py-2.5 rounded-xl transition-all cursor-pointer"
           >
             <Download className="w-4 h-4 text-gray-400" />
             Export CSV
@@ -167,7 +167,7 @@ export const CustomersView: React.FC = () => {
           
           <button
             onClick={openAddModal}
-            className="flex items-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-amber-600/10 cursor-pointer"
+            className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-500/10 cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             Add Customer
@@ -176,7 +176,7 @@ export const CustomersView: React.FC = () => {
       </div>
 
       {/* SEARCH AND FILTERS */}
-      <div className="bg-white dark:bg-[#1A1D20] p-4 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium flex flex-col md:flex-row items-center gap-3 justify-between">
+      <div className="bg-white dark:bg-[#0C1222] p-4 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium flex flex-col md:flex-row items-center gap-3 justify-between">
         <div className="relative w-full md:max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
@@ -184,20 +184,20 @@ export const CustomersView: React.FC = () => {
             placeholder="Search by name, email, phone..."
             value={searchTerm}
             onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
-            className="w-full text-xs pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2C3034] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500 font-sans"
+            className="w-full text-xs pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1E2B48] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500 font-sans"
           />
         </div>
 
         <div className="flex items-center gap-2 w-full md:w-auto self-stretch md:self-auto shrink-0">
           <Filter className="w-3.5 h-3.5 text-gray-400 hidden sm:block" />
-          <div className="grid grid-cols-3 bg-gray-50 dark:bg-[#202428] rounded-xl p-1 border border-gray-100 dark:border-[#2D3135] flex-1 md:flex-initial">
+          <div className="grid grid-cols-3 bg-gray-50 dark:bg-[#131D33] rounded-xl p-1 border border-gray-100 dark:border-[#1C273E] flex-1 md:flex-initial">
             {(['All', 'Active', 'Inactive'] as const).map((filter) => (
               <button
                 key={filter}
                 onClick={() => { setStatusFilter(filter); setCurrentPage(1); }}
                 className={`px-3 py-1.5 text-[11px] font-bold rounded-lg capitalize transition-all cursor-pointer ${
                   statusFilter === filter 
-                    ? 'bg-white dark:bg-[#1A1D20] text-amber-600 dark:text-white shadow-sm' 
+                    ? 'bg-white dark:bg-[#0C1222] text-blue-500 dark:text-white shadow-sm' 
                     : 'text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
@@ -209,11 +209,11 @@ export const CustomersView: React.FC = () => {
       </div>
 
       {/* CUSTOMERS LISTING TABLE */}
-      <div className="bg-white dark:bg-[#1A1D20] rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium overflow-hidden">
+      <div className="bg-white dark:bg-[#0C1222] rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm border-collapse">
             <thead>
-              <tr className="border-b border-gray-100 dark:border-[#2D3135] text-gray-400 text-xs font-semibold">
+              <tr className="border-b border-gray-100 dark:border-[#1C273E] text-gray-400 text-xs font-semibold">
                 <th className="py-3 px-5">Loyalty Member</th>
                 <th className="py-3 px-5">Contact Info</th>
                 <th className="py-3 px-5 text-center">Orders Claimed</th>
@@ -223,21 +223,21 @@ export const CustomersView: React.FC = () => {
                 <th className="py-3 px-5 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-[#24282C]">
+            <tbody className="divide-y divide-gray-100 dark:divide-[#16223B]">
               {paginatedCustomers.length > 0 ? (
                 paginatedCustomers.map((customer) => (
-                  <tr key={customer.id} className="hover:bg-gray-50/50 dark:hover:bg-[#202428]/50 transition-colors text-xs">
+                  <tr key={customer.id} className="hover:bg-gray-50/50 dark:hover:bg-[#131D33]/50 transition-colors text-xs">
                     <td className="py-4 px-5">
                       <div className="flex items-center gap-3">
                         <img 
                           src={customer.avatarUrl} 
                           alt={customer.name} 
-                          className="w-9 h-9 rounded-xl object-cover border border-gray-100 dark:border-[#2D3135]"
+                          className="w-9 h-9 rounded-xl object-cover border border-gray-100 dark:border-[#1C273E]"
                           referrerPolicy="no-referrer"
                         />
                         <div>
                           <p className="font-bold text-gray-900 dark:text-white text-sm">{customer.name}</p>
-                          <span className="font-mono text-[10px] text-amber-500 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded">
+                          <span className="font-mono text-[10px] text-blue-400 font-bold bg-blue-500/10 px-1.5 py-0.5 rounded">
                             {customer.id}
                           </span>
                         </div>
@@ -270,7 +270,7 @@ export const CustomersView: React.FC = () => {
                       <div className="flex items-center justify-end gap-1.5">
                         <button
                           onClick={() => openEditModal(customer)}
-                          className="p-1.5 text-gray-400 hover:text-amber-500 hover:bg-gray-50 dark:hover:bg-[#24282C] rounded-lg transition-colors cursor-pointer"
+                          className="p-1.5 text-gray-400 hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-[#16223B] rounded-lg transition-colors cursor-pointer"
                           title="Edit Customer"
                         >
                           <Edit className="w-4 h-4" />
@@ -281,7 +281,7 @@ export const CustomersView: React.FC = () => {
                               deleteCustomer(customer.id);
                             }
                           }}
-                          className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-gray-50 dark:hover:bg-[#24282C] rounded-lg transition-colors cursor-pointer"
+                          className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-gray-50 dark:hover:bg-[#16223B] rounded-lg transition-colors cursor-pointer"
                           title="Delete Customer"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -304,7 +304,7 @@ export const CustomersView: React.FC = () => {
 
         {/* PAGINATION PANEL */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-between p-4 border-t border-gray-100 dark:border-[#2D3135] bg-gray-50/50 dark:bg-[#1A1D20]">
+          <div className="flex items-center justify-between p-4 border-t border-gray-100 dark:border-[#1C273E] bg-gray-50/50 dark:bg-[#0C1222]">
             <span className="text-xs text-gray-400 font-medium">
               Showing page <strong className="text-gray-900 dark:text-white">{currentPage}</strong> of {totalPages}
             </span>
@@ -312,14 +312,14 @@ export const CustomersView: React.FC = () => {
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(prev => prev - 1)}
-                className="p-1.5 border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#24282C] disabled:opacity-40 transition-colors cursor-pointer"
+                className="p-1.5 border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#16223B] disabled:opacity-40 transition-colors cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(prev => prev + 1)}
-                className="p-1.5 border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#24282C] disabled:opacity-40 transition-colors cursor-pointer"
+                className="p-1.5 border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#16223B] disabled:opacity-40 transition-colors cursor-pointer"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -336,10 +336,10 @@ export const CustomersView: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white dark:bg-[#1A1D20] border border-gray-100 dark:border-[#2D3135] w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative"
+              className="bg-white dark:bg-[#0C1222] border border-gray-100 dark:border-[#1C273E] w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative"
             >
               {/* Header */}
-              <div className="p-5 border-b border-gray-100 dark:border-[#2D3135] flex items-center justify-between">
+              <div className="p-5 border-b border-gray-100 dark:border-[#1C273E] flex items-center justify-between">
                 <h3 className="font-display font-bold text-gray-900 dark:text-white text-base">
                   {editingCustomer ? 'Modify Customer Profile' : 'Register New Customer'}
                 </h3>
@@ -361,7 +361,7 @@ export const CustomersView: React.FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter customer name..."
-                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
 
@@ -373,7 +373,7 @@ export const CustomersView: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="example@mail.com..."
-                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
 
@@ -384,7 +384,7 @@ export const CustomersView: React.FC = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+1 (555) 000-0000..."
-                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                    className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
 
@@ -394,7 +394,7 @@ export const CustomersView: React.FC = () => {
                     <select
                       value={status}
                       onChange={(e) => setStatus(e.target.value as any)}
-                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="w-full text-xs p-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
                       <option value="Active">Active</option>
                       <option value="Inactive">Inactive</option>
@@ -403,7 +403,7 @@ export const CustomersView: React.FC = () => {
 
                   <div>
                     <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Avatar Selection</label>
-                    <div className="flex gap-2 items-center h-[42px] px-2 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl">
+                    <div className="flex gap-2 items-center h-[42px] px-2 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl">
                       <img 
                         src={testAvatars[avatarIndex]} 
                         alt="Preview" 
@@ -413,7 +413,7 @@ export const CustomersView: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setAvatarIndex((prev) => (prev + 1) % testAvatars.length)}
-                        className="text-[10px] font-bold text-amber-500 hover:text-amber-600 cursor-pointer"
+                        className="text-[10px] font-bold text-blue-400 hover:text-blue-500 cursor-pointer"
                       >
                         Next Face
                       </button>
@@ -422,17 +422,17 @@ export const CustomersView: React.FC = () => {
                 </div>
 
                 {/* Submit Buttons */}
-                <div className="flex gap-2 border-t border-gray-100 dark:border-[#2D3135] pt-4 mt-6">
+                <div className="flex gap-2 border-t border-gray-100 dark:border-[#1C273E] pt-4 mt-6">
                   <button
                     type="button"
                     onClick={() => { setIsAddModalOpen(false); setEditingCustomer(null); }}
-                    className="flex-1 text-xs py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-[#202428] border border-gray-200 dark:border-[#2D3135] text-gray-500 dark:text-gray-300 transition-colors cursor-pointer"
+                    className="flex-1 text-xs py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] text-gray-500 dark:text-gray-300 transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 text-xs py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold transition-all shadow-lg shadow-amber-600/10 cursor-pointer"
+                    className="flex-1 text-xs py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-lg shadow-blue-500/10 cursor-pointer"
                   >
                     Save Profile
                   </button>

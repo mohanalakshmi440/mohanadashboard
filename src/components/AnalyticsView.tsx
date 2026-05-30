@@ -63,21 +63,21 @@ export const AnalyticsView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Controls Grid */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
         <div>
           <h2 className="text-xl font-display font-bold text-gray-900 dark:text-white">Business Intelligence & Trends</h2>
           <p className="text-xs text-gray-400 mt-1">Deep analytics on dessert sales, item margins, category coverage, and operational efficiency.</p>
         </div>
         
         {/* Time Filter Tabs */}
-        <div className="flex bg-gray-50 dark:bg-[#202428] rounded-xl p-1 border border-gray-100 dark:border-[#2D3135] self-start">
+        <div className="flex bg-gray-50 dark:bg-[#131D33] rounded-xl p-1 border border-gray-100 dark:border-[#1C273E] self-start">
           {(['daily', 'weekly', 'monthly'] as const).map((range) => (
             <button
               key={range}
               onClick={() => setTimeRange(range)}
               className={`px-4 py-2 text-xs font-semibold rounded-lg capitalize transition-all cursor-pointer ${
                 timeRange === range 
-                  ? 'bg-white dark:bg-[#1A1D20] text-amber-600 dark:text-white shadow-sm' 
+                  ? 'bg-white dark:bg-[#0C1222] text-blue-500 dark:text-white shadow-sm' 
                   : 'text-gray-400 hover:text-gray-800 dark:hover:text-white'
               }`}
             >
@@ -89,8 +89,8 @@ export const AnalyticsView: React.FC = () => {
 
       {/* THREE BENTO CARDS COMPILING DYNAMIC OVERVIEWS */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium flex items-center gap-4">
-          <div className="p-3 bg-amber-500/10 text-amber-600 rounded-xl">
+        <div className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium flex items-center gap-4">
+          <div className="p-3 bg-blue-500/10 text-blue-500 rounded-xl">
             <DollarSign className="w-5 h-5" />
           </div>
           <div>
@@ -102,7 +102,7 @@ export const AnalyticsView: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium flex items-center gap-4">
+        <div className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium flex items-center gap-4">
           <div className="p-3 bg-red-500/10 text-red-500 rounded-xl">
             <Percent className="w-5 h-5" />
           </div>
@@ -115,7 +115,7 @@ export const AnalyticsView: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium flex items-center gap-4">
+        <div className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium flex items-center gap-4">
           <div className="p-3 bg-indigo-500/10 text-indigo-500 rounded-xl">
             <ShoppingBag className="w-5 h-5" />
           </div>
@@ -133,13 +133,13 @@ export const AnalyticsView: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* GRAPHS A: REVENUE & COGS SPENT VS NET PROFIT */}
-        <div className="bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+        <div className="bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-display font-bold text-gray-950 dark:text-white">Revenue vs Cost vs Profit margins</h3>
               <p className="text-[11px] text-gray-400">Detailed overview of ingredient overhead vs profit gains</p>
             </div>
-            <span className="p-1 px-2 text-[10px] font-mono text-gray-400 uppercase bg-gray-50 dark:bg-[#202428] rounded border border-gray-100 dark:border-[#2D3135]">
+            <span className="p-1 px-2 text-[10px] font-mono text-gray-400 uppercase bg-gray-50 dark:bg-[#131D33] rounded border border-gray-100 dark:border-[#1C273E]">
               Cash metrics
             </span>
           </div>
@@ -148,7 +148,7 @@ export const AnalyticsView: React.FC = () => {
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={updatedAnalytics} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" className="dark:hidden" />
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#2D3135" className="hidden dark:block" />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1C273E" className="hidden dark:block" />
                 <XAxis dataKey="date" stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <YAxis stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <Tooltip 
@@ -165,13 +165,13 @@ export const AnalyticsView: React.FC = () => {
         </div>
 
         {/* GRAPHS B: SALES AND ORDER VOLUMES */}
-        <div className="bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+        <div className="bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-display font-bold text-gray-950 dark:text-white">Daily Order Count & Servings</h3>
               <p className="text-[11px] text-gray-400">Total processed tickets vs food quantities cooked</p>
             </div>
-            <span className="p-1 px-2 text-[10px] font-mono text-gray-400 uppercase bg-gray-50 dark:bg-[#202428] rounded border border-gray-100 dark:border-[#2D3135]">
+            <span className="p-1 px-2 text-[10px] font-mono text-gray-400 uppercase bg-gray-50 dark:bg-[#131D33] rounded border border-gray-100 dark:border-[#1C273E]">
               Workload volumes
             </span>
           </div>
@@ -180,7 +180,7 @@ export const AnalyticsView: React.FC = () => {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={updatedAnalytics} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" className="dark:hidden" />
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#2D3135" className="hidden dark:block" />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1C273E" className="hidden dark:block" />
                 <XAxis dataKey="date" stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <YAxis stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <Tooltip 
@@ -194,7 +194,7 @@ export const AnalyticsView: React.FC = () => {
         </div>
 
         {/* GRAPHS C: DESSERT CATEGORY COVERAGE (PIE) */}
-        <div className="bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+        <div className="bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-display font-bold text-gray-950 dark:text-white">Dessert Category Distribution</h3>
@@ -228,7 +228,7 @@ export const AnalyticsView: React.FC = () => {
             {/* Premium Legend Labels */}
             <div className="space-y-2 flex-1 w-full">
               {CATEGORY_DATA.map((item, index) => (
-                <div key={item.name} className="flex items-center justify-between text-xs border-b border-gray-100 dark:border-[#2D3135] pb-1.5 last:border-0">
+                <div key={item.name} className="flex items-center justify-between text-xs border-b border-gray-100 dark:border-[#1C273E] pb-1.5 last:border-0">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COLORS[index % COLORS.length] }}></span>
                     <span className="text-gray-600 dark:text-gray-300 font-semibold">{item.name}</span>
@@ -241,7 +241,7 @@ export const AnalyticsView: React.FC = () => {
         </div>
 
         {/* GRAPHS D: CLUB MEMBERSHIP GROWTH (LINE) */}
-        <div className="bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+        <div className="bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-display font-bold text-gray-950 dark:text-white">Active Club Registrations</h3>
@@ -254,7 +254,7 @@ export const AnalyticsView: React.FC = () => {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={updatedAnalytics} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" className="dark:hidden" />
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#2D3135" className="hidden dark:block" />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1C273E" className="hidden dark:block" />
                 <XAxis dataKey="date" stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <YAxis stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <Tooltip contentStyle={{ backgroundColor: '#1E293B', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '11px' }} />

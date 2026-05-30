@@ -166,10 +166,10 @@ export const DashboardView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner & Date Summary */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-bold font-mono tracking-wider bg-amber-500/10 text-amber-600 px-2.5 py-1 rounded-full flex items-center gap-1">
+            <span className="text-xs font-bold font-mono tracking-wider bg-blue-500/10 text-blue-500 px-2.5 py-1 rounded-full flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 animate-pulse" /> LIVE TERMINAL
             </span>
             <span className="text-gray-400 text-xs">UTC: 2026-05-28</span>
@@ -184,7 +184,7 @@ export const DashboardView: React.FC = () => {
         <div className="flex gap-2 shrink-0">
           <button
             onClick={handleSimulateSalesRush}
-            className="flex items-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white text-xs font-bold px-4 py-3 rounded-xl shadow-lg shadow-amber-600/10 transition-all active:scale-95 cursor-pointer"
+            className="flex items-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white text-xs font-bold px-4 py-3 rounded-xl shadow-lg shadow-blue-500/10 transition-all active:scale-95 cursor-pointer"
           >
             <Activity className="w-3.5 h-3.5" />
             Simulate Lunch Rush Order
@@ -192,7 +192,7 @@ export const DashboardView: React.FC = () => {
           
           <button
             onClick={() => setCurrentView('orders')}
-            className="flex items-center gap-1.5 bg-gray-50 dark:bg-[#24282C] border border-gray-200 dark:border-[#2D3135] hover:bg-gray-100 dark:hover:bg-[#2D3135] text-gray-700 dark:text-gray-300 text-xs font-bold px-4 py-3 rounded-xl transition-all cursor-pointer"
+            className="flex items-center gap-1.5 bg-gray-50 dark:bg-[#16223B] border border-gray-200 dark:border-[#1C273E] hover:bg-gray-100 dark:hover:bg-[#1C273E] text-gray-700 dark:text-gray-300 text-xs font-bold px-4 py-3 rounded-xl transition-all cursor-pointer"
           >
             <Plus className="w-3.5 h-3.5" />
             New Order
@@ -213,8 +213,8 @@ export const DashboardView: React.FC = () => {
               whileHover={{ scale: 1.01 }}
               className={`p-5 rounded-2xl border transition-all cursor-pointer ${
                 isSelected 
-                  ? 'bg-amber-50/50 dark:bg-amber-950/10 border-amber-500/30' 
-                  : 'bg-white dark:bg-[#1A1D20] border-gray-100 dark:border-[#2D3135]'
+                  ? 'bg-amber-50/50 dark:bg-blue-950/20 border-amber-500/30' 
+                  : 'bg-white dark:bg-[#0C1222] border-gray-100 dark:border-[#1C273E]'
               }`}
             >
               <div className="flex items-center justify-between">
@@ -242,7 +242,7 @@ export const DashboardView: React.FC = () => {
 
       {/* CHART SECTION: INTERACTIVE SUB-TRENDS */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+        <div className="lg:col-span-2 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-base font-display font-bold text-gray-900 dark:text-white capitalize">
@@ -251,7 +251,7 @@ export const DashboardView: React.FC = () => {
               <p className="text-xs text-gray-400 mt-0.5">Focus graph on dynamic tracking variables</p>
             </div>
             
-            <span className="text-xs font-bold font-mono text-amber-600 bg-amber-50 dark:bg-amber-950/20 px-2.5 py-1 rounded-lg border border-amber-500/10">
+            <span className="text-xs font-bold font-mono text-blue-500 bg-amber-50 dark:bg-amber-950/20 px-2.5 py-1 rounded-lg border border-amber-500/10">
               Live updates
             </span>
           </div>
@@ -306,10 +306,10 @@ export const DashboardView: React.FC = () => {
         {/* SIDE BENTO: QUICK STATUS & BEST PRODUCT */}
         <div className="flex flex-col gap-4">
           {/* Best Product */}
-          <div className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium flex-1 flex flex-col justify-between">
+          <div className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium flex-1 flex flex-col justify-between">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Best Selling Product</span>
-              <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-amber-600 bg-amber-500/10 px-2 py-0.5 rounded">
+              <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-blue-500 bg-blue-500/10 px-2 py-0.5 rounded">
                 MVP Item
               </span>
             </div>
@@ -319,13 +319,13 @@ export const DashboardView: React.FC = () => {
                 <img 
                   src={bestSellingProduct.imageUrl} 
                   alt={bestSellingProduct.name} 
-                  className="w-16 h-16 rounded-xl object-cover shadow border border-gray-100 dark:border-[#2D3135]"
+                  className="w-16 h-16 rounded-xl object-cover shadow border border-gray-100 dark:border-[#1C273E]"
                   referrerPolicy="no-referrer"
                 />
                 <div>
                   <h4 className="text-sm font-semibold text-gray-900 dark:text-white line-clamp-1">{bestSellingProduct.name}</h4>
                   <p className="text-xs text-gray-400 font-medium">{bestSellingProduct.category}</p>
-                  <p className="text-xs font-mono font-bold text-amber-500 mt-1">
+                  <p className="text-xs font-mono font-bold text-blue-400 mt-1">
                     {bestSellingProduct.salesCount} claims
                   </p>
                 </div>
@@ -334,14 +334,14 @@ export const DashboardView: React.FC = () => {
               <p className="text-xs text-gray-400">No product found.</p>
             )}
 
-            <div className="border-t border-gray-100 dark:border-[#2D3135] pt-3 flex items-center justify-between">
+            <div className="border-t border-gray-100 dark:border-[#1C273E] pt-3 flex items-center justify-between">
               <span className="text-xs text-gray-400">Inventory Status</span>
               {bestSellingProduct && (
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
                   bestSellingProduct.stock === 0 
                     ? 'bg-rose-500/10 text-rose-500' 
                     : bestSellingProduct.stock <= settings.lowStockThreshold 
-                      ? 'bg-amber-500/10 text-amber-500 animate-pulse' 
+                      ? 'bg-blue-500/10 text-blue-400 animate-pulse' 
                       : 'bg-emerald-500/10 text-emerald-500'
                 }`}>
                   {bestSellingProduct.stock} left in stock
@@ -351,7 +351,7 @@ export const DashboardView: React.FC = () => {
           </div>
 
           {/* Critical Warnings Panel */}
-          <div className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium flex-1">
+          <div className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium flex-1">
             <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-3 block">Inventory & Alerts Alertboard</h4>
             
             <div className="space-y-2.5">
@@ -363,18 +363,18 @@ export const DashboardView: React.FC = () => {
                 <span className="text-xs font-mono font-bold text-rose-500">{outOfStockItems.length}</span>
               </div>
 
-              <div className="flex items-center justify-between p-2.5 rounded-xl bg-amber-500/5 border border-amber-500/10">
+              <div className="flex items-center justify-between p-2.5 rounded-xl bg-blue-500/5 border border-amber-500/10">
                 <span className="flex items-center gap-2 text-xs text-gray-700 dark:text-gray-300">
-                  <AlertTriangle className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
+                  <AlertTriangle className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
                   Low Stock Items
                 </span>
-                <span className="text-xs font-mono font-bold text-amber-500">{lowStockItems.length}</span>
+                <span className="text-xs font-mono font-bold text-blue-400">{lowStockItems.length}</span>
               </div>
             </div>
 
             <button 
               onClick={() => setCurrentView('products')}
-              className="w-full flex items-center justify-center gap-1 mt-4 text-xs font-bold text-amber-500 hover:text-amber-600 transition-colors"
+              className="w-full flex items-center justify-center gap-1 mt-4 text-xs font-bold text-blue-400 hover:text-blue-500 transition-colors"
             >
               Examine Inventory <ArrowRight className="w-3 h-3" />
             </button>
@@ -383,7 +383,7 @@ export const DashboardView: React.FC = () => {
       </div>
 
       {/* RECENT ORDERS TABLE & WORKFLOW TRACKING */}
-      <div className="bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+      <div className="bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
         <div className="flex sm:items-center sm:justify-between flex-col sm:flex-row gap-3 mb-6">
           <div>
             <h3 className="text-base font-display font-bold text-gray-900 dark:text-white">Active Store Workload</h3>
@@ -392,7 +392,7 @@ export const DashboardView: React.FC = () => {
           
           <button 
             onClick={() => setCurrentView('orders')}
-            className="text-xs font-bold text-amber-500 hover:text-amber-600 transition-colors self-start"
+            className="text-xs font-bold text-blue-400 hover:text-blue-500 transition-colors self-start"
           >
             Go to Orders Manager →
           </button>
@@ -401,7 +401,7 @@ export const DashboardView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm border-collapse">
             <thead>
-              <tr className="border-b border-gray-100 dark:border-[#2D3135] text-gray-400 text-xs font-semibold">
+              <tr className="border-b border-gray-100 dark:border-[#1C273E] text-gray-400 text-xs font-semibold">
                 <th className="py-3 px-4">Order ID</th>
                 <th className="py-3 px-4">Customer</th>
                 <th className="py-3 px-4">Dessert Products</th>
@@ -410,9 +410,9 @@ export const DashboardView: React.FC = () => {
                 <th className="py-3 px-4 text-right">Progress Trigger</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-[#24282C]">
+            <tbody className="divide-y divide-gray-100 dark:divide-[#16223B]">
               {orders.slice(0, 5).map((order) => (
-                <tr key={order.id} className="hover:bg-gray-50/50 dark:hover:bg-[#202428]/50 transition-colors text-xs">
+                <tr key={order.id} className="hover:bg-gray-50/50 dark:hover:bg-[#131D33]/50 transition-colors text-xs">
                   <td className="py-3.5 px-4 font-mono font-bold text-gray-900 dark:text-white">
                     {order.id}
                   </td>
@@ -439,7 +439,7 @@ export const DashboardView: React.FC = () => {
                   <td className="py-3.5 px-4">
                     <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold ${
                       order.status === 'Pending' 
-                        ? 'bg-amber-500/10 text-amber-500' 
+                        ? 'bg-blue-500/10 text-blue-400' 
                         : order.status === 'Preparing' 
                           ? 'bg-blue-500/10 text-blue-500 animate-pulse' 
                           : order.status === 'Delivered' 
@@ -453,7 +453,7 @@ export const DashboardView: React.FC = () => {
                     {order.status === 'Pending' && (
                       <button 
                         onClick={() => updateOrderStatus(order.id, 'Preparing')}
-                        className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-[10px] px-2.5 py-1.5 rounded-lg active:scale-95 transition-all cursor-pointer"
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-[10px] px-2.5 py-1.5 rounded-lg active:scale-95 transition-all cursor-pointer"
                       >
                         Start Batch
                       </button>

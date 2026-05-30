@@ -38,16 +38,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
   ];
 
   return (
-    <aside className="w-64 bg-[#1A1D20] text-gray-300 h-screen sticky top-0 flex flex-col border-r border-[#2D3135] shrink-0 justify-between">
+    <aside className="w-64 bg-[#0C1222] text-gray-300 h-screen sticky top-0 flex flex-col border-r border-[#1C273E] shrink-0 justify-between">
       {/* Header / Brand */}
       <div>
-        <div className="p-6 flex items-center gap-3 border-b border-[#2D3135]">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-yellow-500 flex items-center justify-center shadow-lg shadow-amber-900/20">
+        <div className="p-6 flex items-center gap-3 border-b border-[#1C273E]">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-950/40">
             <span className="font-display font-bold text-white text-xl">CF</span>
           </div>
           <div>
             <h1 className="font-display text-white font-bold leading-tight tracking-tight text-lg">CREAM FUDGE</h1>
-            <p className="text-[10px] text-amber-500 tracking-widest font-bold font-mono">PREMIUM SAAS</p>
+            <p className="text-[10px] text-blue-400 tracking-widest font-bold font-mono">PREMIUM SAAS</p>
           </div>
         </div>
 
@@ -55,13 +55,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
         <div className="px-4 py-3">
           <button 
             onClick={onOpenSearch}
-            className="w-full flex items-center justify-between text-xs bg-[#24282C] hover:bg-[#2D3135] text-gray-400 py-2.5 px-3 rounded-lg border border-[#2D3135] hover:border-gray-600 transition-all duration-200"
+            className="w-full flex items-center justify-between text-xs bg-[#16223B] hover:bg-[#1C273E] text-gray-400 py-2.5 px-3 rounded-lg border border-[#1C273E] hover:border-gray-600 transition-all duration-200"
           >
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
               Search dessert hub...
             </span>
-            <kbd className="bg-[#1A1D20] text-[10px] px-1.5 py-0.5 rounded border border-[#2D3135] font-mono font-bold">⌘K</kbd>
+            <kbd className="bg-[#0C1222] text-[10px] px-1.5 py-0.5 rounded border border-[#1C273E] font-mono font-bold">⌘K</kbd>
           </button>
         </div>
 
@@ -76,8 +76,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
                 onClick={() => setCurrentView(item.id)}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-lg text-sm font-medium transition-all group relative cursor-pointer ${
                   isActive 
-                    ? 'text-white bg-[#D97706]/10 text-amber-500 font-semibold' 
-                    : 'text-gray-400 hover:text-white hover:bg-[#202428]'
+                    ? 'text-white bg-blue-550/10 text-blue-400 font-semibold' 
+                    : 'text-gray-400 hover:text-white hover:bg-[#131D33]'
                 }`}
               >
                 {/* Active Indicator on side */}
@@ -90,7 +90,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
                 )}
                 
                 <span className="flex items-center gap-3">
-                  <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isActive ? 'text-amber-500' : 'text-gray-400'}`} />
+                  <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isActive ? 'text-blue-400' : 'text-gray-400'}`} />
                   {item.label}
                 </span>
 
@@ -106,13 +106,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
       </div>
 
       {/* Footer User Profile & Theme Settings */}
-      <div className="p-4 border-t border-[#2D3135] space-y-3 bg-[#131618]">
+      <div className="p-4 border-t border-[#1C273E] space-y-3 bg-[#070A14]">
         {/* Quick Theme Toggle */}
-        <div className="flex items-center justify-between text-xs px-2 py-1 bg-[#1A1D20] rounded-lg border border-[#2D3135]">
+        <div className="flex items-center justify-between text-xs px-2 py-1 bg-[#0C1222] rounded-lg border border-[#1C273E]">
           <span className="text-gray-400 font-medium">Theme Mode</span>
           <button 
             onClick={toggleTheme}
-            className="px-2.5 py-1 text-[11px] rounded bg-[#2D3135] hover:bg-amber-600 hover:text-white transition-all text-amber-500 font-bold capitalize"
+            className="px-2.5 py-1 text-[11px] rounded bg-[#1C273E] hover:bg-blue-600 hover:text-white transition-all text-blue-400 font-bold capitalize"
           >
             {theme}
           </button>
@@ -124,10 +124,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
               <img 
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" 
                 alt="Fudge HQ Administrator" 
-                className="w-10 h-10 rounded-lg border border-[#2D3135] object-cover"
+                className="w-10 h-10 rounded-lg border border-[#1C273E] object-cover"
                 referrerPolicy="no-referrer"
               />
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-[#131618] rounded-full"></span>
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-[#070A14] rounded-full"></span>
             </div>
             <div>
               <p className="text-xs text-white font-semibold leading-tight">Mona Fudge</p>
@@ -138,7 +138,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
           <button 
             type="button"
             onClick={() => alert('Logout is handled by local storage. Press Settings to customize your experience.')}
-            className="p-2 hover:bg-[#202428] rounded-lg text-gray-400 hover:text-white transition-all"
+            className="p-2 hover:bg-[#131D33] rounded-lg text-gray-400 hover:text-white transition-all"
             title="SaaS Settings"
           >
             <LogOut className="w-4 h-4 cursor-pointer" />

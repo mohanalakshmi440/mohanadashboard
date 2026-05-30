@@ -114,7 +114,7 @@ export const OrdersView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#1A1D20] p-6 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white dark:bg-[#0C1222] p-6 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium">
         <div>
           <h2 className="text-xl font-display font-bold text-gray-950 dark:text-white">Active Store Workload</h2>
           <p className="text-xs text-gray-400 mt-1">Submit tickets, monitor kitchen cooking timelines and direct handover processes.</p>
@@ -132,7 +132,7 @@ export const OrdersView: React.FC = () => {
             setCreatorCart([]);
             setIsCreatorOpen(true);
           }}
-          className="flex items-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-amber-600/10 cursor-pointer"
+          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-500/10 cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           Create Sweet Ticket
@@ -140,7 +140,7 @@ export const OrdersView: React.FC = () => {
       </div>
 
       {/* FILTER & TIMELINE TABS */}
-      <div className="bg-white dark:bg-[#1A1D20] p-4 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium flex flex-col md:flex-row items-center gap-3 justify-between">
+      <div className="bg-white dark:bg-[#0C1222] p-4 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium flex flex-col md:flex-row items-center gap-3 justify-between">
         <div className="relative w-full md:max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
@@ -148,18 +148,18 @@ export const OrdersView: React.FC = () => {
             placeholder="Search orders, clients, tickets..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full text-xs pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#202428] border border-gray-200 dark:border-[#2C3034] rounded-xl text-gray-900 dark:text-white focus:outline-none"
+            className="w-full text-xs pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#131D33] border border-gray-200 dark:border-[#1E2B48] rounded-xl text-gray-900 dark:text-white focus:outline-none"
           />
         </div>
 
-        <div className="flex bg-gray-50 dark:bg-[#202428] rounded-xl p-1 border border-gray-100 dark:border-[#2D3135] overflow-x-auto self-stretch md:self-auto shrink-0 max-w-full">
+        <div className="flex bg-gray-50 dark:bg-[#131D33] rounded-xl p-1 border border-gray-100 dark:border-[#1C273E] overflow-x-auto self-stretch md:self-auto shrink-0 max-w-full">
           {(['All', 'Pending', 'Preparing', 'Delivered', 'Cancelled'] as const).map((status) => (
             <button
               key={status}
               onClick={() => setStatusFilter(status)}
               className={`px-3 py-1.5 text-[11px] font-bold rounded-lg capitalize whitespace-nowrap transition-all cursor-pointer ${
                 statusFilter === status 
-                  ? 'bg-white dark:bg-[#1A1D20] text-amber-600 dark:text-white shadow-sm' 
+                  ? 'bg-white dark:bg-[#0C1222] text-blue-500 dark:text-white shadow-sm' 
                   : 'text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
@@ -173,7 +173,7 @@ export const OrdersView: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* LEFT COLUMN: ACTIVE ORDERS feed */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="bg-white dark:bg-[#1A1D20] rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium overflow-hidden divide-y divide-gray-100 dark:divide-[#24282C]">
+          <div className="bg-white dark:bg-[#0C1222] rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium overflow-hidden divide-y divide-gray-100 dark:divide-[#16223B]">
             {filteredOrders.length > 0 ? (
               filteredOrders.map((ord) => {
                 const isSelected = syncFocusedOrder?.id === ord.id;
@@ -184,8 +184,8 @@ export const OrdersView: React.FC = () => {
                     onClick={() => setFocusedOrder(ord)}
                     className={`p-5 transition-all cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
                       isSelected 
-                        ? 'bg-amber-500/5 dark:bg-amber-950/10 border-l-4 border-amber-600' 
-                        : 'hover:bg-gray-50/40 dark:hover:bg-[#202428]/40 border-l-4 border-transparent'
+                        ? 'bg-blue-500/5 dark:bg-blue-950/20 border-l-4 border-blue-500/40' 
+                        : 'hover:bg-gray-50/40 dark:hover:bg-[#131D33]/40 border-l-4 border-transparent'
                     }`}
                   >
                     <div className="space-y-2">
@@ -196,7 +196,7 @@ export const OrdersView: React.FC = () => {
                         
                         <span className={`px-2 py-0.5 text-[9px] font-bold rounded-full ${
                           ord.status === 'Pending' 
-                            ? 'bg-amber-500/10 text-amber-500' 
+                            ? 'bg-blue-500/10 text-blue-400' 
                             : ord.status === 'Preparing' 
                               ? 'bg-teal-500/10 text-teal-500 animate-pulse' 
                               : ord.status === 'Delivered' 
@@ -233,7 +233,7 @@ export const OrdersView: React.FC = () => {
                           <>
                             <button
                               onClick={(e) => { e.stopPropagation(); updateOrderStatus(ord.id, 'Preparing'); }}
-                              className="text-[10px] font-bold px-2.5 py-1.5 bg-amber-600 text-white rounded-lg hover:bg-amber-700 active:scale-95 transition-all cursor-pointer"
+                              className="text-[10px] font-bold px-2.5 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all cursor-pointer"
                             >
                               Dispatch to Kitchen
                             </button>
@@ -280,12 +280,12 @@ export const OrdersView: React.FC = () => {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white dark:bg-[#1A1D20] p-5 rounded-2xl border border-gray-100 dark:border-[#2D3135] shadow-premium space-y-5"
+              className="bg-white dark:bg-[#0C1222] p-5 rounded-2xl border border-gray-100 dark:border-[#1C273E] shadow-premium space-y-5"
             >
               {/* Timeline Header */}
-              <div className="border-b border-gray-100 dark:border-[#2D3135] pb-4 flex items-center justify-between">
+              <div className="border-b border-gray-100 dark:border-[#1C273E] pb-4 flex items-center justify-between">
                 <div>
-                  <span className="text-[9px] font-bold font-mono text-amber-600 bg-amber-500/10 px-2 py-1 rounded">Live Tracker UI</span>
+                  <span className="text-[9px] font-bold font-mono text-blue-500 bg-blue-500/10 px-2 py-1 rounded">Live Tracker UI</span>
                   <h3 className="text-base font-display font-bold text-gray-950 dark:text-white mt-1.5">{syncFocusedOrder.id} timeline</h3>
                 </div>
                 
@@ -298,7 +298,7 @@ export const OrdersView: React.FC = () => {
               </div>
 
               {/* Invoice Breakdown */}
-              <div className="space-y-2 bg-gray-50/50 dark:bg-[#202428]/40 p-3 rounded-xl border border-gray-100 dark:border-[#2D3135]">
+              <div className="space-y-2 bg-gray-50/50 dark:bg-[#131D33]/40 p-3 rounded-xl border border-gray-100 dark:border-[#1C273E]">
                 {syncFocusedOrder.items.map((it, idx) => (
                   <div key={idx} className="flex justify-between text-xs font-semibold">
                     <span className="text-gray-600 dark:text-gray-400">{it.name} (x{it.quantity})</span>
@@ -306,18 +306,18 @@ export const OrdersView: React.FC = () => {
                   </div>
                 ))}
                 
-                <div className="border-t border-gray-100 dark:border-[#2D3135] pt-2 flex justify-between text-xs font-bold text-gray-950 dark:text-white">
+                <div className="border-t border-gray-100 dark:border-[#1C273E] pt-2 flex justify-between text-xs font-bold text-gray-950 dark:text-white">
                   <span>Grand Total</span>
                   <span className="font-mono">{settings.currency}{syncFocusedOrder.totalAmount.toFixed(2)}</span>
                 </div>
               </div>
 
               {/* TIMELINE TRACKING UI */}
-              <div className="relative pl-6 border-l border-gray-100 dark:border-[#2C3034] py-1.5 space-y-6">
+              <div className="relative pl-6 border-l border-gray-100 dark:border-[#1E2B48] py-1.5 space-y-6">
                 {syncFocusedOrder.status === 'Cancelled' ? (
                   // Display simple cancelled timeline
                   <div className="relative select-none">
-                    <span className="absolute -left-[30px] top-0 bg-rose-600 text-white p-1 rounded-full border-4 border-white dark:border-[#1A1D20]">
+                    <span className="absolute -left-[30px] top-0 bg-rose-600 text-white p-1 rounded-full border-4 border-white dark:border-[#0C1222]">
                       <XCircle className="w-3.5 h-3.5" />
                     </span>
                     <h4 className="text-xs font-bold text-rose-500">Order cancelled</h4>
@@ -343,8 +343,8 @@ export const OrdersView: React.FC = () => {
                           {/* Dot Badge indicator */}
                           <span className={`absolute -left-[30px] top-0 p-1 rounded-full border-4 ${
                             tle.done 
-                              ? 'bg-emerald-600 text-white border-white dark:border-[#1A1D20]' 
-                              : 'bg-gray-100 text-gray-300 border-white dark:border-[#1A1D20]'
+                              ? 'bg-emerald-600 text-white border-white dark:border-[#0C1222]' 
+                              : 'bg-gray-100 text-gray-300 border-white dark:border-[#0C1222]'
                           }`}>
                             <Icon className="w-3.5 h-3.5" />
                           </span>
@@ -370,7 +370,7 @@ export const OrdersView: React.FC = () => {
               </div>
             </motion.div>
           ) : (
-            <div className="bg-gray-50/50 dark:bg-[#1A1D20]/40 p-12 text-center text-gray-400 rounded-2xl border border-dashed border-gray-200 dark:border-[#2D3135]">
+            <div className="bg-gray-50/50 dark:bg-[#0C1222]/40 p-12 text-center text-gray-400 rounded-2xl border border-dashed border-gray-200 dark:border-[#1C273E]">
               Select any sweet order ticket to observe its live tracker timeline details.
             </div>
           )}
@@ -385,10 +385,10 @@ export const OrdersView: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white dark:bg-[#1A1D20] border border-gray-100 dark:border-[#2D3135] w-full max-w-4xl h-[85vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between"
+              className="bg-white dark:bg-[#0C1222] border border-gray-100 dark:border-[#1C273E] w-full max-w-4xl h-[85vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between"
             >
               {/* Header */}
-              <div className="p-5 border-b border-gray-100 dark:border-[#2D3135] flex items-center justify-between shrink-0">
+              <div className="p-5 border-b border-gray-100 dark:border-[#1C273E] flex items-center justify-between shrink-0">
                 <h3 className="font-display font-bold text-gray-900 dark:text-white text-base">New active ticket</h3>
                 <button
                   onClick={() => setIsCreatorOpen(false)}
@@ -401,7 +401,7 @@ export const OrdersView: React.FC = () => {
               {/* Form Split Content */}
               <form onSubmit={handleCheckoutSubmit} className="flex-1 flex flex-col md:flex-row overflow-hidden">
                 {/* LEFT HALF SEARCH PRODUCTS CARD MATRIX */}
-                <div className="flex-1 p-5 overflow-y-auto space-y-4 border-r border-gray-100 dark:border-[#2D3135]">
+                <div className="flex-1 p-5 overflow-y-auto space-y-4 border-r border-gray-100 dark:border-[#1C273E]">
                   <h4 className="text-xs font-bold font-mono uppercase tracking-wider text-gray-400 block mb-2.5">Add fudge & waffles</h4>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -413,8 +413,8 @@ export const OrdersView: React.FC = () => {
                           key={p.id}
                           className={`p-3.5 rounded-xl border flex gap-3 items-center justify-between ${
                             cartQty > 0 
-                              ? 'bg-amber-500/5 border-amber-500/30' 
-                              : 'bg-gray-50/50 dark:bg-[#202428]/40 border-gray-150 dark:border-gray-800'
+                              ? 'bg-blue-500/5 border-amber-500/30' 
+                              : 'bg-gray-50/50 dark:bg-[#131D33]/40 border-gray-150 dark:border-gray-800'
                           }`}
                         >
                           <div className="flex items-center gap-2.5">
@@ -452,7 +452,7 @@ export const OrdersView: React.FC = () => {
                                 type="button"
                                 disabled={p.stock === 0}
                                 onClick={() => updateCartQty(p.id, 1)}
-                                className="bg-amber-600 hover:bg-amber-700 disabled:bg-gray-300 text-white font-bold px-2 py-1 text-[10px] rounded active:scale-95 transition-all select-none cursor-pointer"
+                                className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white font-bold px-2 py-1 text-[10px] rounded active:scale-95 transition-all select-none cursor-pointer"
                               >
                                 Add
                               </button>
@@ -475,7 +475,7 @@ export const OrdersView: React.FC = () => {
                 </div>
 
                 {/* RIGHT HALF INVOICE SUMMARY */}
-                <div className="w-full md:w-80 bg-gray-50/55 dark:bg-[#1A1D20] p-5 flex flex-col justify-between overflow-y-auto border-t md:border-t-0 border-gray-100 dark:border-[#2D3135]">
+                <div className="w-full md:w-80 bg-gray-50/55 dark:bg-[#0C1222] p-5 flex flex-col justify-between overflow-y-auto border-t md:border-t-0 border-gray-100 dark:border-[#1C273E]">
                   <div className="space-y-4">
                     {/* Select Customer */}
                     <div>
@@ -484,7 +484,7 @@ export const OrdersView: React.FC = () => {
                         required
                         value={selectedCustomerEmail}
                         onChange={(e) => setSelectedCustomerEmail(e.target.value)}
-                        className="w-full text-xs p-3 bg-white dark:bg-[#202428] border border-gray-200 dark:border-[#2D3135] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+                        className="w-full text-xs p-3 bg-white dark:bg-[#131D33] border border-gray-200 dark:border-[#1C273E] rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                       >
                         <option value="">-- Choose Member --</option>
                         {customers
@@ -499,7 +499,7 @@ export const OrdersView: React.FC = () => {
                     {/* Select Payment Method */}
                     <div>
                       <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Payment Method</label>
-                      <div className="grid grid-cols-3 bg-white dark:bg-[#202428] rounded-xl p-1 border border-gray-200 dark:border-[#2D3135]">
+                      <div className="grid grid-cols-3 bg-white dark:bg-[#131D33] rounded-xl p-1 border border-gray-200 dark:border-[#1C273E]">
                         {(['Card', 'Cash', 'Online'] as const).map((method) => (
                           <button
                             key={method}
@@ -507,7 +507,7 @@ export const OrdersView: React.FC = () => {
                             onClick={() => setPaymentMethod(method)}
                             className={`py-2 text-[10px] font-bold rounded-lg capitalize transition-all cursor-pointer ${
                               paymentMethod === method 
-                                ? 'bg-amber-600 text-white shadow-sm font-semibold' 
+                                ? 'bg-blue-600 text-white shadow-sm font-semibold' 
                                 : 'text-gray-400 hover:text-gray-800'
                             }`}
                           >
@@ -518,7 +518,7 @@ export const OrdersView: React.FC = () => {
                     </div>
 
                     {/* Cart Items List */}
-                    <div className="space-y-2.5 pt-4 border-t border-gray-100 dark:border-[#2D3135]">
+                    <div className="space-y-2.5 pt-4 border-t border-gray-100 dark:border-[#1C273E]">
                       <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Ticket Invoice Cart</span>
                       
                       {creatorCart.length > 0 ? (
@@ -541,7 +541,7 @@ export const OrdersView: React.FC = () => {
                   </div>
 
                   {/* Pricing footer summary details */}
-                  <div className="pt-4 border-t border-gray-100 dark:border-[#2D3135] mt-6 space-y-2">
+                  <div className="pt-4 border-t border-gray-100 dark:border-[#1C273E] mt-6 space-y-2">
                     <div className="flex justify-between text-xs">
                       <span className="text-gray-400 font-medium">Subtotal</span>
                       <span className="font-mono text-gray-500 font-semibold">{settings.currency}{cartSubtotal.toFixed(2)}</span>
@@ -552,9 +552,9 @@ export const OrdersView: React.FC = () => {
                       <span className="font-mono text-gray-500 font-semibold">{settings.currency}{cartTax.toFixed(2)}</span>
                     </div>
 
-                    <div className="flex justify-between text-sm font-bold border-t border-gray-100 dark:border-[#2D3135] pt-2">
+                    <div className="flex justify-between text-sm font-bold border-t border-gray-100 dark:border-[#1C273E] pt-2">
                       <span className="text-gray-900 dark:text-white">Amount Due</span>
-                      <span className="font-mono text-amber-600 dark:text-amber-500">{settings.currency}{cartTotal.toFixed(2)}</span>
+                      <span className="font-mono text-blue-500 dark:text-blue-400">{settings.currency}{cartTotal.toFixed(2)}</span>
                     </div>
 
                     {/* Buttons block */}
@@ -562,7 +562,7 @@ export const OrdersView: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setIsCreatorOpen(false)}
-                        className="flex-1 text-xs py-3 border border-gray-200 dark:border-[#2D3135] hover:bg-gray-100 dark:hover:bg-[#202428] text-gray-400 rounded-xl transition-all cursor-pointer"
+                        className="flex-1 text-xs py-3 border border-gray-200 dark:border-[#1C273E] hover:bg-gray-100 dark:hover:bg-[#131D33] text-gray-400 rounded-xl transition-all cursor-pointer"
                       >
                         Cancel
                       </button>
@@ -570,7 +570,7 @@ export const OrdersView: React.FC = () => {
                       <button
                         type="submit"
                         disabled={creatorCart.length === 0 || !selectedCustomerEmail}
-                        className="flex-1 text-xs py-3 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-300 hover:disabled:bg-gray-300 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-600/10 cursor-pointer"
+                        className="flex-1 text-xs py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 hover:disabled:bg-gray-300 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-500/10 cursor-pointer"
                       >
                         Print Ticket
                       </button>
