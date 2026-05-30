@@ -1,0 +1,6 @@
+{
+  "name": "Cream Fudge",
+  "description": "Premium Business Dashboard for Cream Fudge dessert & fast-food shop. Track sales, revenue, manage and track active orders, customers, products, and notifications with real-time UI states.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
