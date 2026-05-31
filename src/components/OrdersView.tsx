@@ -26,7 +26,8 @@ export const OrdersView: React.FC = () => {
     customers, 
     settings, 
     createOrder, 
-    updateOrderStatus 
+    updateOrderStatus,
+    triggerToast
   } = useDashboard();
 
   // Active filter state
@@ -94,11 +95,11 @@ export const OrdersView: React.FC = () => {
   const handleCheckoutSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedCustomerEmail) {
-      alert('Please select a loyalty customer profile.');
+      triggerToast('Please select a loyalty customer profile.', 'error');
       return;
     }
     if (creatorCart.length === 0) {
-      alert('Please add at least one dessert item to the ticket.');
+      triggerToast('Please add at least one dessert item to the ticket.', 'error');
       return;
     }
 
@@ -125,7 +126,7 @@ export const OrdersView: React.FC = () => {
             // Pre-select first customer
             const activeC = customers.filter(c => c.status === 'Active');
             if (activeC.length === 0) {
-              alert('Please create at least one Active customer in the Customers view before placing an order!');
+              triggerToast('Please create at least one Active customer in the Customers view before placing an order!', 'warning');
               return;
             }
             setSelectedCustomerEmail(activeC[0].email);
@@ -413,7 +414,7 @@ export const OrdersView: React.FC = () => {
                           key={p.id}
                           className={`p-3.5 rounded-xl border flex gap-3 items-center justify-between ${
                             cartQty > 0 
-                              ? 'bg-blue-500/5 border-amber-500/30' 
+                              ? 'bg-blue-500/5 dark:bg-blue-500/5 border-blue-500/40 shadow-sm shadow-blue-500/5' 
                               : 'bg-gray-50/50 dark:bg-[#131D33]/40 border-gray-150 dark:border-gray-800'
                           }`}
                         >

@@ -18,7 +18,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 export const CustomersView: React.FC = () => {
-  const { customers, addCustomer, updateCustomer, deleteCustomer, settings } = useDashboard();
+  const { customers, addCustomer, updateCustomer, deleteCustomer, settings, triggerToast } = useDashboard();
 
   // Search & Filter state
   const [searchTerm, setSearchTerm] = useState('');
@@ -92,7 +92,7 @@ export const CustomersView: React.FC = () => {
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email) {
-      alert('Please fill out Name and Email.');
+      triggerToast('Please fill out Name and Email.', 'error');
       return;
     }
 
@@ -120,7 +120,7 @@ export const CustomersView: React.FC = () => {
   // CSV Export
   const exportToCSV = () => {
     if (customers.length === 0) {
-      alert('No customers to export.');
+      triggerToast('No customers to export.', 'warning');
       return;
     }
     const headers = ['Customer ID', 'Full Name', 'Email Address', 'Phone Number', 'Orders Count', 'Total Spent', 'Last Order Date', 'Member Status'];

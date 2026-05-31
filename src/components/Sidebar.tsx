@@ -18,7 +18,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
-  const { currentView, setCurrentView, notifications, theme, toggleTheme } = useDashboard();
+  const { currentView, setCurrentView, notifications, theme, toggleTheme, triggerToast } = useDashboard();
   
   const unreadNotifCount = notifications.filter(n => !n.read).length;
 
@@ -58,7 +58,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
             className="w-full flex items-center justify-between text-xs bg-[#16223B] hover:bg-[#1C273E] text-gray-400 py-2.5 px-3 rounded-lg border border-[#1C273E] hover:border-gray-600 transition-all duration-200"
           >
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
               Search dessert hub...
             </span>
             <kbd className="bg-[#0C1222] text-[10px] px-1.5 py-0.5 rounded border border-[#1C273E] font-mono font-bold">⌘K</kbd>
@@ -74,17 +74,17 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
               <button
                 key={item.id}
                 onClick={() => setCurrentView(item.id)}
-                className={`w-full flex items-center justify-between px-3.5 py-3 rounded-lg text-sm font-medium transition-all group relative cursor-pointer ${
+                className={`w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-all group relative cursor-pointer ${
                   isActive 
-                    ? 'text-white bg-blue-550/10 text-blue-400 font-semibold' 
-                    : 'text-gray-400 hover:text-white hover:bg-[#131D33]'
+                    ? 'text-white bg-blue-500/10 dark:bg-blue-500/15 text-blue-500 dark:text-blue-400 font-semibold' 
+                    : 'text-gray-400 hover:text-white dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-[#131D33]'
                 }`}
               >
                 {/* Active Indicator on side */}
                 {isActive && (
                   <motion.div 
                     layoutId="activeSideIndicator"
-                    className="absolute left-0 w-1 h-5 rounded-r bg-[#D97706]"
+                    className="absolute left-0 w-1 h-6 rounded-r-full bg-gradient-to-b from-blue-500 to-cyan-400 shadow-lg shadow-blue-500/55"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -137,7 +137,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSearch }) => {
 
           <button 
             type="button"
-            onClick={() => alert('Logout is handled by local storage. Press Settings to customize your experience.')}
+            onClick={() => triggerToast('Logout simulation: Data remains safe in local storage. Open Settings to customize.', 'info')}
             className="p-2 hover:bg-[#131D33] rounded-lg text-gray-400 hover:text-white transition-all"
             title="SaaS Settings"
           >

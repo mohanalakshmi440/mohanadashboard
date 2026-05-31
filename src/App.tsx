@@ -14,6 +14,7 @@ import { OrdersView } from './components/OrdersView';
 import { NotificationsView } from './components/NotificationsView';
 import { SettingsView } from './components/SettingsView';
 import { GlobalSearchModal } from './components/GlobalSearchModal';
+import { ToastContainer } from './components/ToastContainer';
 import { Menu, X, Sparkles, Bell } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -121,7 +122,7 @@ const MainLayout: React.FC = () => {
           
           <div className="flex items-center gap-2">
             <span className="font-display font-black text-blue-400 tracking-tight text-base">CF</span>
-            <span className="text-[10px] tracking-widest text-gray-400 font-mono scale-95 uppercase font-bold">Fudge SaaS</span>
+            <span className="text-[10px] tracking-widest text-gray-400 font-mono scale-95 uppercase font-bold">Cream Fudge Dashboard</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -131,7 +132,7 @@ const MainLayout: React.FC = () => {
               className="p-2 rounded-xl hover:bg-[#131D33] text-gray-400 cursor-pointer"
               title="Search dessert database"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 block animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 block animate-pulse"></span>
             </button>
 
             {/* Notifications link trigger */}
@@ -170,6 +171,9 @@ const MainLayout: React.FC = () => {
         isOpen={isSearchOpen} 
         onClose={() => setIsSearchOpen(false)} 
       />
+
+      {/* 5. GORGEOUS CUSTOM FLOATING TOAST NOTIFICATION CORNER */}
+      <ToastContainer />
     </div>
   );
 };

@@ -89,3 +89,9 @@ export interface BusinessSettings {
   enableSoundAlerts: boolean;
   lowStockThreshold: number;
 }
+
+export interface ToastInfo {
+  id: string;
+  message: string;
+  type: 'success' | 'warning' | 'error' | 'info';
+}

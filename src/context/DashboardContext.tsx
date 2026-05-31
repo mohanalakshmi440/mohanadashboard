@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Product, Customer, Order, Notification, BusinessSettings, OrderItem, OrderTimelineEvent } from '../types';
+import { Product, Customer, Order, Notification, BusinessSettings, OrderItem, OrderTimelineEvent, ToastInfo } from '../types';
 import { 
   INITIAL_PRODUCTS, 
   INITIAL_CUSTOMERS, 
@@ -18,6 +18,11 @@ interface DashboardContextType {
   settings: BusinessSettings;
   theme: 'light' | 'dark';
   toggleTheme: () => void;
+  
+  // Custom Toast Notification Center
+  toasts: ToastInfo[];
+  triggerToast: (message: string, type?: ToastInfo['type']) => void;
+  dismissToast: (id: string) => void;
   
   // Product CRUD
   addProduct: (product: Omit<Product, 'id' | 'salesCount' | 'status'>) => void;
@@ -54,7 +59,22 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [orders, setOrders] = useState<Order[]>([]);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [settings, setSettings] = useState<BusinessSettings>(DEFAULT_SETTINGS);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  // Custom Toast State
+  const [toasts, setToasts] = useState<ToastInfo[]>([]);
+
+  const triggerToast = (message: string, type: ToastInfo['type'] = 'success') => {
+    const id = Date.now().toString() + Math.random().toString(36).substr(2, 5);
+    setToasts(prev => [...prev, { id, message, type }]);
+    setTimeout(() => {
+      dismissToast(id);
+    }, 4500);
+  };
+
+  const dismissToast = (id: string) => {
+    setToasts(prev => prev.filter(t => t.id !== id));
+  };
 
   // Load from LocalStorage
   useEffect(() => {
@@ -86,8 +106,8 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         setTheme(parsedTheme);
         document.documentElement.classList.toggle('dark', parsedTheme === 'dark');
       } else {
-        setTheme('light');
-        document.documentElement.classList.remove('dark');
+        setTheme('dark');
+        document.documentElement.classList.add('dark');
       }
     } catch (e) {
       console.error('Failed to load storage values:', e);
@@ -418,6 +438,10 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       settings,
       theme,
       toggleTheme,
+      
+      toasts,
+      triggerToast,
+      dismissToast,
       
       addProduct,
       updateProduct,

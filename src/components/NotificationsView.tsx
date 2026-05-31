@@ -40,7 +40,7 @@ export const NotificationsView: React.FC = () => {
 
   const getBg = (type: string) => {
     switch (type) {
-      case 'stock': return 'bg-blue-500/10 border-amber-500/20';
+      case 'stock': return 'bg-blue-500/10 border-blue-500/20';
       case 'order': return 'bg-blue-500/10 border-blue-500/20';
       case 'revenue': return 'bg-emerald-500/10 border-emerald-500/20';
       default: return 'bg-gray-500/10 border-gray-500/20';
@@ -154,7 +154,7 @@ export const NotificationsView: React.FC = () => {
                   {!n.read && (
                     <button
                       onClick={() => markNotificationRead(n.id)}
-                      className="text-[10px] font-bold text-blue-500 hover:text-amber-700 bg-blue-500/10 px-2.5 py-1.5 rounded-lg active:scale-95 transition-all cursor-pointer shrink-0"
+                      className="text-[10px] font-bold text-blue-500 dark:text-blue-400 hover:bg-blue-500/20 bg-blue-500/10 border border-blue-500/15 px-2.5 py-1.5 rounded-lg active:scale-95 transition-all cursor-pointer shrink-0"
                     >
                       Clear alert
                     </button>

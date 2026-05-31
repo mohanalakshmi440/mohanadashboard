@@ -16,7 +16,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ProductsView: React.FC = () => {
-  const { products, addProduct, updateProduct, deleteProduct, settings } = useDashboard();
+  const { products, addProduct, updateProduct, deleteProduct, settings, triggerToast } = useDashboard();
 
   // Search & Filter state
   const [searchTerm, setSearchTerm] = useState('');
@@ -91,7 +91,7 @@ export const ProductsView: React.FC = () => {
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || parseFloat(price) <= 0 || parseInt(stock) < 0) {
-      alert('Please enter a valid product name, positive price and non-negative stock.');
+      triggerToast('Please enter a valid product name, positive price and non-negative stock.', 'error');
       return;
     }
 
@@ -186,15 +186,15 @@ export const ProductsView: React.FC = () => {
         <div className="flex items-center gap-1.5 pt-1.5 border-t border-gray-100 dark:border-[#151F33] overflow-x-auto">
           <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mr-2">Stock Level:</span>
           {(['All', 'In Stock', 'Low Stock', 'Out of Stock'] as const).map((lvl) => (
-            <button
-              key={lvl}
-              onClick={() => setStockFilter(lvl)}
-              className={`px-2.5 py-1 text-[10px] font-semibold rounded-lg capitalize border cursor-pointer ${
-                stockFilter === lvl 
-                  ? 'bg-blue-500/10 text-blue-500 border-amber-500/30' 
-                  : 'bg-transparent text-gray-400 border-gray-100 dark:border-[#151F33] hover:bg-gray-50 dark:hover:bg-[#131D33]'
-              }`}
-            >
+              <button
+                key={lvl}
+                onClick={() => setStockFilter(lvl)}
+                className={`px-2.5 py-1 text-[10px] font-semibold rounded-lg capitalize border cursor-pointer ${
+                  stockFilter === lvl 
+                    ? 'bg-blue-500/10 text-blue-500 border-blue-500/30' 
+                    : 'bg-transparent text-gray-400 border-gray-100 dark:border-[#151F33] hover:bg-gray-50 dark:hover:bg-[#131D33]'
+                }`}
+              >
               {lvl}
             </button>
           ))}
@@ -235,14 +235,14 @@ export const ProductsView: React.FC = () => {
                     p.status === 'In Stock' 
                       ? 'bg-emerald-600 text-white' 
                       : p.status === 'Low Stock' 
-                        ? 'bg-amber-500 text-white animate-pulse' 
+                        ? 'bg-cyan-500 text-white animate-pulse shadow-md shadow-cyan-500/20' 
                         : 'bg-rose-600 text-white'
                   }`}>
                     {p.status}
                   </span>
 
                   {/* Overlay Claims count */}
-                  <span className="absolute bottom-2.5 left-2.5 bg-[#FFF7ED]/90 dark:bg-[#0C1222]/90 backdrop-blur-md text-amber-700 dark:text-blue-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-500/10">
+                  <span className="absolute bottom-2.5 left-2.5 bg-blue-50/90 dark:bg-[#0C1222]/90 backdrop-blur-md text-blue-700 dark:text-blue-400 text-[10px] font-semibold px-2 py-0.5 rounded border border-blue-500/20">
                     {p.salesCount.toLocaleString()} serves claimed
                   </span>
                 </div>
@@ -277,8 +277,8 @@ export const ProductsView: React.FC = () => {
                           p.stock === 0 
                             ? 'bg-rose-600 w-0' 
                             : p.stock <= settings.lowStockThreshold 
-                              ? 'bg-amber-500' 
-                              : 'bg-gradient-to-r from-amber-500 to-yellow-500'
+                              ? 'bg-cyan-500 shadow-sm shadow-cyan-500/50' 
+                              : 'bg-gradient-to-r from-blue-600 to-cyan-400'
                         }`}
                         style={{ width: `${currentStockPercent}%` }}
                       ></div>
@@ -292,14 +292,14 @@ export const ProductsView: React.FC = () => {
                       <button
                         onClick={() => handleQuickRestock(p, 5)}
                         disabled={p.stock >= p.maxStock}
-                        className="text-[9px] font-bold px-2 py-1 bg-blue-500/5 hover:bg-blue-500/10 text-blue-500 border border-amber-500/10 rounded disabled:opacity-40 transition-all cursor-pointer"
+                        className="text-[9px] font-bold px-2 py-1 bg-blue-500/5 hover:bg-blue-500/10 text-blue-500 border border-blue-500/20 rounded disabled:opacity-40 transition-all cursor-pointer"
                       >
                         +5 Stock
                       </button>
                       <button
                         onClick={() => handleQuickRestock(p, 20)}
                         disabled={p.stock >= p.maxStock}
-                        className="text-[9px] font-bold px-2 py-1 bg-blue-500/5 hover:bg-blue-500/10 text-blue-500 border border-amber-500/10 rounded disabled:opacity-40 transition-all cursor-pointer"
+                        className="text-[9px] font-bold px-2 py-1 bg-blue-500/5 hover:bg-blue-500/10 text-blue-500 border border-blue-500/20 rounded disabled:opacity-40 transition-all cursor-pointer"
                       >
                         +20
                       </button>

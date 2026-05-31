@@ -16,7 +16,7 @@ import {
 import { motion } from 'motion/react';
 
 export const SettingsView: React.FC = () => {
-  const { settings, saveSettings, theme, toggleTheme } = useDashboard();
+  const { settings, saveSettings, theme, toggleTheme, triggerToast } = useDashboard();
 
   // Form local state
   const [businessName, setBusinessName] = useState(settings.businessName);
@@ -32,7 +32,7 @@ export const SettingsView: React.FC = () => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!businessName || parseFloat(taxRate) < 0 || parseInt(lowStockThreshold) < 0) {
-      alert('Please enter a valid business Name, non-negative tax rate and non-negative stock threshold.');
+      triggerToast('Please enter a valid business Name, non-negative tax rate and non-negative stock threshold.', 'error');
       return;
     }
 

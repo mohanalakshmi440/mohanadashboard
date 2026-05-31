@@ -58,7 +58,7 @@ export const AnalyticsView: React.FC = () => {
   });
 
   // Category Pie Chart Cell Colors (Stripe/Linear style)
-  const COLORS = ['#D97706', '#F59E0B', '#EF4444', '#10B981', '#6366F1'];
+  const COLORS = ['#3B82F6', '#06B6D4', '#6366F1', '#10B981', '#EC4899'];
 
   return (
     <div className="space-y-6">
@@ -153,11 +153,11 @@ export const AnalyticsView: React.FC = () => {
                 <YAxis stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <Tooltip 
                   contentStyle={{ backgroundColor: '#1E293B', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '11px' }}
-                  labelStyle={{ fontWeight: 'bold', color: '#F59E0B' }}
+                  labelStyle={{ fontWeight: 'bold', color: '#3B82F6' }}
                 />
                 <Legend iconType="circle" wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} />
-                <Area type="monotone" dataKey="revenue" stackId="1" stroke="#D97706" color="#D97706" fill="#D97706" fillOpacity={0.15} name="Total sales" />
-                <Area type="monotone" dataKey="cost" stackId="2" stroke="#EF4444" color="#EF4444" fill="#EF4444" fillOpacity={0.1} name="COGS overhead" />
+                <Area type="monotone" dataKey="revenue" stackId="1" stroke="#3B82F6" color="#3B82F6" fill="#3B82F6" fillOpacity={0.15} name="Total sales" />
+                <Area type="monotone" dataKey="cost" stackId="2" stroke="#F43F5E" color="#F43F5E" fill="#F43F5E" fillOpacity={0.1} name="COGS overhead" />
                 <Area type="monotone" dataKey="profit" stackId="3" stroke="#10B981" color="#10B981" fill="#10B981" fillOpacity={0.2} name="Net profits" />
               </AreaChart>
             </ResponsiveContainer>
@@ -187,7 +187,7 @@ export const AnalyticsView: React.FC = () => {
                   contentStyle={{ backgroundColor: '#1E293B', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '11px' }}
                 />
                 <Legend iconType="circle" wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} />
-                <Bar dataKey="orders" fill="#D97706" radius={[4, 4, 0, 0]} name="Orders Processed" />
+                <Bar dataKey="orders" fill="#6366F1" radius={[4, 4, 0, 0]} name="Orders Processed" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -258,7 +258,7 @@ export const AnalyticsView: React.FC = () => {
                 <XAxis dataKey="date" stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <YAxis stroke="#9CA3AF" fontSize={10} tickLine={false} />
                 <Tooltip contentStyle={{ backgroundColor: '#1E293B', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '11px' }} />
-                <Line type="monotone" dataKey="orders" stroke="#F59E0B" strokeWidth={2} name="Enrolled Buyers" />
+                <Line type="monotone" dataKey="orders" stroke="#06B6D4" strokeWidth={2.5} name="Enrolled Buyers" />
               </LineChart>
             </ResponsiveContainer>
           </div>

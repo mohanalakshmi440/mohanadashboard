@@ -27,7 +27,8 @@ export const DashboardView: React.FC = () => {
     settings, 
     setCurrentView, 
     createOrder, 
-    updateOrderStatus 
+    updateOrderStatus,
+    triggerToast
   } = useDashboard();
 
   // Selected KPI Card for sub-trend display
@@ -62,7 +63,7 @@ export const DashboardView: React.FC = () => {
     // Pick 1-2 random products that have stock
     const activeProducts = products.filter(p => p.stock > 0);
     if (activeProducts.length === 0) {
-      alert('All products are completely out of stock! Refill them in the Products view first.');
+      triggerToast('All products are completely out of stock! Refill them in the Products view first.', 'error');
       return;
     }
 
@@ -88,7 +89,7 @@ export const DashboardView: React.FC = () => {
       label: 'Gross Revenue',
       value: `${settings.currency}${totalRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
       icon: DollarSign,
-      color: 'from-amber-500 to-amber-600',
+      color: 'from-blue-600 to-cyan-500 text-white shadow-blue-500/20 bg-gradient-to-r',
       percentage: '+15.4%',
       trendUp: true,
       subtext: 'vs last week status',
@@ -107,7 +108,7 @@ export const DashboardView: React.FC = () => {
       label: 'Total Orders',
       value: totalOrdersCount.toString(),
       icon: ShoppingBag,
-      color: 'from-orange-500 to-orange-600',
+      color: 'from-indigo-600 to-purple-500 text-white shadow-indigo-500/20 bg-gradient-to-r',
       percentage: '+8.2%',
       trendUp: true,
       subtext: 'Live incoming orders',
@@ -126,7 +127,7 @@ export const DashboardView: React.FC = () => {
       label: 'Servings Sold',
       value: totalUnitsSold.toLocaleString(),
       icon: Dessert,
-      color: 'from-yellow-500 to-yellow-600',
+      color: 'from-teal-500 to-emerald-400 text-white shadow-teal-500/20 bg-gradient-to-r',
       percentage: '+12.1%',
       trendUp: true,
       subtext: 'Dessert units claimed',
@@ -145,7 +146,7 @@ export const DashboardView: React.FC = () => {
       label: 'Active Customers',
       value: activeCustomersCount.toString(),
       icon: Users,
-      color: 'from-rose-500 to-rose-600',
+      color: 'from-pink-500 to-rose-500 text-white shadow-pink-500/20 bg-gradient-to-r',
       percentage: '+5.4',
       trendUp: true,
       subtext: 'Enrolled club users',
@@ -184,7 +185,7 @@ export const DashboardView: React.FC = () => {
         <div className="flex gap-2 shrink-0">
           <button
             onClick={handleSimulateSalesRush}
-            className="flex items-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white text-xs font-bold px-4 py-3 rounded-xl shadow-lg shadow-blue-500/10 transition-all active:scale-95 cursor-pointer"
+            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs font-bold px-4 py-3 rounded-xl shadow-lg shadow-blue-500/15 transition-all active:scale-95 cursor-pointer"
           >
             <Activity className="w-3.5 h-3.5" />
             Simulate Lunch Rush Order
@@ -213,7 +214,7 @@ export const DashboardView: React.FC = () => {
               whileHover={{ scale: 1.01 }}
               className={`p-5 rounded-2xl border transition-all cursor-pointer ${
                 isSelected 
-                  ? 'bg-amber-50/50 dark:bg-blue-950/20 border-amber-500/30' 
+                  ? 'bg-blue-500/5 dark:bg-blue-950/25 border-blue-500/40 shadow-sm' 
                   : 'bg-white dark:bg-[#0C1222] border-gray-100 dark:border-[#1C273E]'
               }`}
             >
@@ -251,7 +252,7 @@ export const DashboardView: React.FC = () => {
               <p className="text-xs text-gray-400 mt-0.5">Focus graph on dynamic tracking variables</p>
             </div>
             
-            <span className="text-xs font-bold font-mono text-blue-500 bg-amber-50 dark:bg-amber-950/20 px-2.5 py-1 rounded-lg border border-amber-500/10">
+            <span className="text-xs font-bold font-mono text-cyan-500 bg-cyan-500/10 dark:bg-cyan-950/20 px-2.5 py-1 rounded-lg border border-cyan-500/20">
               Live updates
             </span>
           </div>
@@ -261,8 +262,8 @@ export const DashboardView: React.FC = () => {
               <AreaChart data={selectedKPIMeta.trendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorKPI" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#D97706" stopOpacity={0.2}/>
-                    <stop offset="95%" stopColor="#D97706" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#2563EB" stopOpacity={0.25}/>
+                    <stop offset="95%" stopColor="#06B6D4" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
                 <XAxis 
@@ -288,13 +289,13 @@ export const DashboardView: React.FC = () => {
                     fontSize: '11px',
                     fontFamily: 'Inter, sans-serif'
                   }} 
-                  labelClassName="font-bold text-amber-400"
+                  labelClassName="font-bold text-cyan-350 text-cyan-400"
                 />
                 <Area 
                   type="monotone" 
                   dataKey="val" 
-                  stroke="#D97706" 
-                  strokeWidth={2}
+                  stroke="#2563EB" 
+                  strokeWidth={2.5}
                   fillOpacity={1} 
                   fill="url(#colorKPI)" 
                 />
@@ -363,7 +364,7 @@ export const DashboardView: React.FC = () => {
                 <span className="text-xs font-mono font-bold text-rose-500">{outOfStockItems.length}</span>
               </div>
 
-              <div className="flex items-center justify-between p-2.5 rounded-xl bg-blue-500/5 border border-amber-500/10">
+              <div className="flex items-center justify-between p-2.5 rounded-xl bg-blue-500/5 border border-blue-500/10">
                 <span className="flex items-center gap-2 text-xs text-gray-700 dark:text-gray-300">
                   <AlertTriangle className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
                   Low Stock Items
